@@ -86,3 +86,7 @@ class TestReview(unittest.TestCase):
         n = self.review._class.name_
         expected_str = f"[{n}] ({self.review.id}) <{self.review._dict_}>"
         self.assertEqual(self.review._str_(), expected_str)
+
+
+if __name__ == '__main__':
+    unittest.main()
