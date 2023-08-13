@@ -74,12 +74,10 @@ class TestPlace(unittest.TestCase):
         """create an instance of class using kwargs"""
 
         place_data = {
-            "id": "1234-1234", "name": "Villa",
-            "city_id": "city-876", "user_id": "user-876",
-            "description": "A beautiful villa", "number_rooms": 6,
-            "number_bathrooms": 3, "max_guest": 5,
-            "price_by_night": 200, "latitude": 34.0522,
-            "longitude": -118.2537,
+            "id": "1234-1234", "name": "Villa", "city_id": "city-876",
+            "user_id": "user-876", "description": "A beautiful villa",
+            "number_rooms": 6, "number_bathrooms": 3, "max_guest": 5,
+            "price_by_night": 200, "latitude": 34.0522, "longitude": -118.2537,
             "amenity_ids": ["amenity--3", "amenity--4"],
             "updated_at": "2023-08-11T23:00:25.886466",
             "created_at": "2023-08-11T23:00:25.886465"

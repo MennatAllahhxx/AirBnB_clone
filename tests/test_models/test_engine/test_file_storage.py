@@ -43,7 +43,7 @@ class TestFileStorage(unittest.TestCase):
         test_model = BaseModel()
         self.file_storage.new(test_model)
         self.assertIn(f"{test_model.__class__.__name__}.{test_model.id}",
-                      self.file_storage.all())
+                     self.file_storage.all())
 
     def test_save_reload(self):
         """Test to check save and reload methods
@@ -58,7 +58,7 @@ class TestFileStorage(unittest.TestCase):
         self.file_storage.reload()
 
         self.assertIn(f"{test_model.__class__.__name__}.{test_model.id}",
-                      self.file_storage.all())
+                     self.file_storage.all())
         self.assertTrue(BaseModel.to_dict.called)
 
 
