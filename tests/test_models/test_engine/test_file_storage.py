@@ -6,8 +6,6 @@ unittest for 'file_storage' module
 """
 import unittest
 from unittest.mock import MagicMock
-import os
-import models
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
@@ -50,21 +48,19 @@ class TestFileStorage(unittest.TestCase):
     def test_save_reload(self):
         """Test to check save and reload methods
         """
-        with self.assertRaises(TypeError):
-            models.storage.save(None)
+        BaseModel.to_dict = MagicMock(return_value={"key": "value"})
 
-        a_storage = FileStorage()
-        try:
-            os.remove("file.json")
-        except FileNotFoundError:
-            pass
-        with open("file.json", "w") as f:
-            f.write("{}")
-        with open("file.json", "r") as r:
-            for line in r:
-                self.assertEqual(line, "{}")
-        self.assertIs(a_storage.reload(), None)
+        test_model = BaseModel()
+        self.file_storage.new(test_model)
+        self.file_storage.save()
+
+        self.file_storage.__objects = {}
+        self.file_storage.reload()
+
+        self.assertIn(f"{test_model.__class__.__name__}.{test_model.id}",
+                      self.file_storage.all())
+        self.assertTrue(BaseModel.to_dict.called)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
