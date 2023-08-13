@@ -74,3 +74,7 @@ class AmenityTests(unittest.TestCase):
 
         expected_str = f"[{n}] ({self.amenity.id}) <{self.amenity.__dict__}>"
         self.assertEqual(self.amenity.__str__(), expected_str)
+
+
+if __name__ == '__main__':
+    unittest.main()
