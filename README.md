@@ -267,6 +267,6 @@ $ python3 unittest -m tests/test_console.py
 
 
 ## Credit
-Farah Halim - [Github](https://github.com/Farah-halim) || [LinkedIn](https://www.linkedin.com/in/farah-halim-775569255)
+Farah Halim - [Github](https://github.com/Farah-halim) || [LinkedIn](https://www.linkedin.com/in/farah-halim-415660255)
 
 Menna Hassan - [Github](https://github.com/MennatAllahhxx) || [LinkedIn](https://www.linkedin.com/in/MennatAllahhxx/)
