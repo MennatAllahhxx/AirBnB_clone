@@ -67,8 +67,8 @@ class TestReview(unittest.TestCase):
     def test_to_dict(self):
         """test to_dict method"""
         to_dict_returned_dict = self.review.to_dict()
-        expected_dict = self.review._dict_.copy()
-        expected_dict["_class"] = self.review.class.name_
+        expected_dict = self.review.__dict__.copy()
+        expected_dict["__class__"] = self.review.__class__.__name__
         expected_dict["updated_at"] = self.review.updated_at.isoformat()
         expected_dict["created_at"] = self.review.created_at.isoformat()
         self.assertDictEqual(expected_dict, to_dict_returned_dict)
@@ -83,9 +83,9 @@ class TestReview(unittest.TestCase):
 
     def test_str(self):
         """test that the str method has the correct output"""
-        n = self.review._class.name_
-        expected_str = f"[{n}] ({self.review.id}) <{self.review._dict_}>"
-        self.assertEqual(self.review._str_(), expected_str)
+        n = self.review.__class__.__name__
+        expected_str = f"[{n}] ({self.review.id}) <{self.review.__dict__}>"
+        self.assertEqual(self.review.__str__(), expected_str)
 
 
 if __name__ == '__main__':
