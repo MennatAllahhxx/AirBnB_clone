@@ -119,8 +119,8 @@ class TestPlace(unittest.TestCase):
     def test_to_dict(self):
         """test to_dict class method"""
         to_dict_returned_dict = self.place.to_dict()
-        expected_dic = self.place._dict_.copy()
-        expected_dic["_class"] = self.place.class.name_
+        expected_dic = self.place.__dict__.copy()
+        expected_dic["__class__"] = self.place.__class__.__name__
         expected_dic["updated_at"] = self.place.updated_at.isoformat()
         expected_dic["created_at"] = self.place.created_at.isoformat()
         self.assertDictEqual(expected_dic, to_dict_returned_dict)
@@ -135,9 +135,9 @@ class TestPlace(unittest.TestCase):
 
     def test_str(self):
         """test that the str method has the correct output"""
-        n = self.place._class.name_
-        expected_str = f"[{n}] ({self.place.id}) <{self.place._dict_}>"
-        self.assertEqual(self.place._str_(), expected_str)
+        n = self.place.__class__.__name__
+        expected_str = f"[{n}] ({self.place.id}) <{self.place.__dict__}>"
+        self.assertEqual(self.place.__str__(), expected_str)
 
 
 if __name__ == '__main__':
